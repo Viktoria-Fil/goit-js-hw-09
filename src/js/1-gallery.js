@@ -1,5 +1,5 @@
-import SimpleLightbox from '/node_modules/simplelightbox';
-import '/node_modules/simplelightbox/dist/simple-lightbox.min.css';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 
 const images = [
@@ -68,26 +68,25 @@ const images = [
   },
 ];
 
-const galleryContainer = document.getElementById('gallery');
-const galleryMarkup = images
-    .map(({ preview, original, description }) => {
+const galleryContainer = document.querySelector('.gallery');
+const galleryItem = images
+    .map(image => {
     return `
         <li class="gallery-item">
-            <a class="gallery-link" href="${original}">
+            <a class="gallery-link" href="${image.original}">
                 <img 
                     class="gallery-image" 
-                    src="${preview}" 
-                    alt="${description}" 
+                    src="${image.preview}" 
+                    alt="${image.description}" 
                 />
             </a>
         </li>`;
     })
     .join('');
 
-galleryContainer.insertAdjacentHTML('afterbegin', galleryMarkup);
+galleryContainer.insertAdjacentHTML('afterbegin', galleryItem);
 
 new SimpleLightbox('.gallery a', {
-    captions: true,
     captionsData: 'alt',
     captionDelay: 250
 });

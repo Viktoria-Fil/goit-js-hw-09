@@ -25,6 +25,10 @@ ul {
     0 1px 1px 0 rgba(46, 47, 66, 0.32), 0 2px 1px rgba(46, 47, 66, 0.16);
 }
 
+.simple-lightbox {
+  background: rgba(46, 47, 66, 0.8);
+}
+
 .gallery-image {
   width: 360px;
   height: 200px;
